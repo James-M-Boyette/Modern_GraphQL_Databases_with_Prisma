@@ -36,7 +36,7 @@ export async function seed(): Promise<void> {
     const subSubDir2 = await createDirectory(
       client,
       "Sub-Sub-Directory 2",
-      subDir2.id
+      subDir1.id
     )
 
     const filesDir = await fs.readdir(seedFilesPath)

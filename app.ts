@@ -10,6 +10,11 @@ import { fileModule } from "./file"
 import { fileVersionModule } from "./fileVersion"
 // import { prismaClient } from "./prisma";
 
+export interface Pagination {
+  pageLength: number
+  page: number
+}
+
 const mainModule = createModule({
   id: "main-module",
   dirname: __dirname,
@@ -22,8 +27,13 @@ const mainModule = createModule({
         updatedAt: String!
       }
 
+      input PaginationInput {
+        pageLength: Int!
+        page: Int!
+      }
+
       type Query {
-        searchFiles(quer: String!): [FileNode]
+        searchFiles(query: String!): [FileNode]
       }
     `,
   ],

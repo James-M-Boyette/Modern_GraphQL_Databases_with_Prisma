@@ -13,7 +13,7 @@ datasource db {
 model File {
   id          String        @id @default(uuid())
   name        String
-  directory   Directory     @relation(fields: [directoryId], references: [id])
+  directory   Directory     @relation(fields: [directoryId], references: [id], onDelete: Cascade)
   directoryId String
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
@@ -27,6 +27,7 @@ model FileVersion {
   name      String
   mimeType  String
   size      Int
+  key       String
   file      File     @relation(fields: [fileId], references: [id])
   fileId    String
   createdAt DateTime @default(now())

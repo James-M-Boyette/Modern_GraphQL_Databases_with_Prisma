@@ -1,4 +1,6 @@
 dist
 node_modules
-*.env
+.env
+.files/
 .DS_Store
+seed-files
